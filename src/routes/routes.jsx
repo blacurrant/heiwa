@@ -29,9 +29,9 @@ const MyRoutes = () => {
       <Route
         path="/"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Layout />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       >
         <Route index element={<Hero />} />
