@@ -50,4 +50,8 @@
     overflow: hidden;
     scrollbar-gutter: stable both-edges;
   }
+
+  /* .player{
+    width: 75vh !important;
+  } */
 }

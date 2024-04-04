@@ -1,29 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSpotify } from "react-icons/fa";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLoginState } from "../redux/slice/loginState";
 
-
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const login = useSelector(state => state.login)
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
+  const navigate = useNavigate();
 
+  const userArray = useSelector((state) => state.users);
+  const loginState = useSelector((state) => state.loginState);
 
   const handleLogin = () => {
-    if( email == login.email && password == login.password){
-      console.log('success');
-      dispatch(setLoginState(true));
+  
+    const obj = userArray?.data?.find((user, index) =>email == user.email && password == user.password)
+    if(obj){
+    dispatch(setLoginState(true));
+   
     }
-    else console.log('try again');
-  }
-
-  // console.log(email, login.email, password, login.passWord);
+    else{
+      alert("Username or password incorrect")
+    }
+  };
 
   
+  useEffect(() => { 
+    if (loginState) {
+      navigate("/");
+    }
+  }, [loginState]);
+
+  // console.log(email, login.email, password, login.passWord);
 
   return (
     <div className="flex items-center min-h-screen px-4 bg-black text-green-500">
@@ -47,7 +57,7 @@ const LoginPage = () => {
               placeholder="m@example.com"
               type="email"
               required
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="space-y-2 flex flex-col ">
@@ -58,11 +68,13 @@ const LoginPage = () => {
               placeholder="password"
               type="password"
               required
-              onChange={e => setPass(e.target.value)}
+              onChange={(e) => setPass(e.target.value)}
             />
           </div>
           <div>
-            <Link to={ (email == login.email && password == login.password) && '/' }>
+            <Link
+            // to={email == login.email && password == user.password && "/"}
+            >
               <button
                 onClick={handleLogin}
                 className="w-full px-5 py-2 text-gray-200 rounded-md bg-green-500 hover:bg-green-400 hover:text-gray-700 transition-all duration-300 ease-out"
@@ -73,11 +85,7 @@ const LoginPage = () => {
             </Link>
           </div>
           <div className="flex justify-between">
-            <Link
-              to="/signup"
-              className="underline"
-              href="#"
-            >
+            <Link to="/signup" className="underline" href="#">
               SignUp
             </Link>
             <a className="underline" href="#">

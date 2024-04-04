@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import Layout from "../layout/layout";
 import AlbumPage from "../pages/albumpage";
 import SongPage from "../pages/songpage";
@@ -13,14 +13,14 @@ import { useSelector } from "react-redux";
 const MyRoutes = () => {
   const loginToggle = useSelector((state) => state.loginState);
 
-  console.log(loginToggle, "toggle");
-
   const ProtectedRoute = ({ children }) => {
-    if (!loginToggle) {
-      return <Navigate to="/login" />;
+    if (loginToggle) {
+      return children;
     }
-    return children;
+    return <Navigate to="/login" />;
   };
+
+  console.log ("helooooooooooo   childrrrrrrrrrrrrrr")
 
   return (
     <Routes>
@@ -35,8 +35,8 @@ const MyRoutes = () => {
         }
       >
         <Route index element={<Hero />} />
-        <Route path="album" element={<AlbumPage />} />
-        <Route path="song" element={<SongPage />} />
+        <Route path="/:albumId" element={<AlbumPage />} />
+        <Route path="song/:songId" element={<SongPage />} />
         <Route path="search" element={<SearchPage />} />
       </Route>
     </Routes>

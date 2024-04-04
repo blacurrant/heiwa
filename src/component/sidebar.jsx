@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Card from "../component/card";
-import { fetchSongs } from "../redux/slice/todo";
-import { Link, Navigate } from "react-router-dom";
+// import { fetchSongs } from "../redux/slice/todo";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
 import Modal from "./modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaHouse } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
+import { deletePlaylist } from "../redux/slice/Playlist/playlistArray";
 
-
-
-const Sidebar = ({ handleSidebar, toggleSidebar, dispatch }) => {
-
-
-  const fetchSong = useSelector(state => state.todo);
+const Sidebar = ({ handleSidebar, toggleSidebar }) => {
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    dispatch(fetchSongs());
-  }, [])
+  // const fetchSong = useSelector(state => state.todo);
+  const fetchData = useSelector((state) => state.data);
+  const fetchPlaylist = useSelector((state) => state.playlist);
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
 
-  const handleSongPage = () => {
-    Navigate()
+  const handleModal = () => {
+    setOpen(true);
+  };
+
+  const handleDelete =(index) => {
+    dispatch(deletePlaylist(index));
+    navigate('/')
   }
-  
-  console.log(fetchSong?.data?.playlists?.items, "songs");
 
   return (
     <div
@@ -31,24 +32,28 @@ const Sidebar = ({ handleSidebar, toggleSidebar, dispatch }) => {
         toggleSidebar ? "w-[20vw] md:w-[7vw]" : "w-[50vw] md:w-[35vw]"
       } transition-all duration-300 ease-in-out`}
     >
-      <div className="h-[20vh] flex flex-col justify-center items-center bg-gray-900 rounded-md cursor-pointer">
+      <div className="h-[20vh] flex flex-col justify-center items-center bg-gray-900 rounded-md cursor-pointer font-semibold">
         <Link
           to="/"
           // onClick={(e) => dispatch(fetchSongs())}
-          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md ${
+          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
             toggleSidebar && "justify-center"
           } `}
         >
-          <button className="text-2xl"><FaHouse /></button>
+          <button className="text-2xl">
+            <FaHouse />
+          </button>
           {toggleSidebar == false && "Home"}
         </Link>
         <Link
-        to='/search'
-          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md ${
+          to="/search"
+          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
             toggleSidebar && "justify-center"
           }`}
         >
-          <button className="text-2xl"><FaSearch /></button>
+          <button className="text-2xl ">
+            <FaSearch />
+          </button>
           {toggleSidebar == false && "Search"}
         </Link>
       </div>
@@ -58,25 +63,57 @@ const Sidebar = ({ handleSidebar, toggleSidebar, dispatch }) => {
         }`}
       >
         <div className="h-fit items-center flex justify-between">
-          <button className="text-2xl font-bold" onClick={handleSidebar}>|||</button>
-          <Modal open={open} setOpen={setOpen}  />
-          {!toggleSidebar && <button onClick={e => setOpen(true)}>+add playlist</button>}
+          <button
+            className="text-2xl font-bold text-gray-500 hover:text-gray-200"
+            onClick={handleSidebar}
+          >
+            |||
+          </button>
+          <Modal open={open} setOpen={setOpen} />
+          {!toggleSidebar && (
+            <button
+              className="font-semibold text-5xl text-gray-500 hover:text-gray-200"
+              onClick={handleModal}
+            >
+              +
+            </button>
+          )}
         </div>
-        <div
+        {fetchPlaylist?.data?.length == 0 ? (
+          <div onClick={handleModal} className="w-[100%] h-[20vh] bg-gradient-to-l from-gray-800 to-gray-950 flex items-center px-5 text-gray-400 cursor-pointer animate-pulse">
+            <button>create your own playlist!</button>
+          </div>
+        ) : (
+          <div>
+            {fetchPlaylist?.data?.map((playlist, index) => {
+              return (
+                <div className="flex justify-between" key={index} >
+                  <NavLink className='flex w-[100%]' to={`/song/${index}`} >
+                    <Card list={playlist} toggleSidebar={toggleSidebar} />
+                  </NavLink>
+                  <button onClick={e => handleDelete(index, playlist)}>-</button>
+                </div>
+                );
+            })}
+          </div>
+        )}
+
+        {/* <div
           className={`h-[100%] flex flex-col overflow-y-auto overflow-x-hidden scrollbar ${
             toggleSidebar && "no-scrollbar px-5"
           }`}
         >
           {
-            fetchSong?.data?.playlists?.items.map((list, index) => {
+            fetchData?.data?.playlists?.items.map((song, index) => {
+              // console.log(song?.data?.uri, "uri");
               return (
-                <div onClick={handleSongPage} key={index}>
-                  <Card list={list} toggleSidebar={toggleSidebar} />
-                </div>
+                <NavLink to={`/song/${index}`} key={index}>
+                  <Card list={song} toggleSidebar={toggleSidebar} />
+                </NavLink>
               )
             })
           }
-        </div>
+        </div> */}
       </div>
     </div>
   );
