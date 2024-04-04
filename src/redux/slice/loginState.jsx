@@ -5,7 +5,7 @@ const loginSlice = createSlice({
     initialState: false,
 
     reducers: {
-        setLoginState: state => !state,
+        setLoginState: (state, action) => state = action.payload,
     }
 })
 

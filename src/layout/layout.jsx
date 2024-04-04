@@ -10,8 +10,6 @@ const Layout = () => {
   const dispatch = useDispatch();
   const spotifyData = useSelector((state) => state.todo);
 
-  console.log(spotifyData, "state");
-
   const [toggleSidebar, setToggleSidebar] = useState(true);
   const [toggleCurrent, setToggleCurrent] = useState(true);
 
