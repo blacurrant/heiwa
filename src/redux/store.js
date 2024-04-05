@@ -9,6 +9,7 @@ import { persistStore } from "redux-persist";
 import dataReducer from './slice/spotifyData';
 import playlistReducer from './slice/Playlist/playlistArray';
 import userReducer from './slice/users/userArray';
+import sidebarReducer from './slice/sidebar/sidebarToggle';
 // export const store = configureStore({
 //     reducer: {
 //         todo: todoReducer,
@@ -25,6 +26,7 @@ const persistedReducer = persistReducer(persistConfig, combineReducers({
     data: dataReducer,
     playlist: playlistReducer,
     users: userReducer,
+    sidebarToggle: sidebarReducer,
 }));
 
 export const store = configureStore({

@@ -4,8 +4,9 @@ import HeroCardTwo from "../component/herocardtwo";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-const Hero = ({ toggleSidebar }) => {
+const Hero = () => {
   const fetchData = useSelector((state) => state.data);
+  const toggleSidebar = useSelector((state) => state.sidebarToggle);
 
   console.log(fetchData);
 

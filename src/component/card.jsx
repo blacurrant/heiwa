@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const Card = ({ list, toggleSidebar }) => {
+const Card = ({ list}) => {
+
+  const toggleSidebar = useSelector(state => state.sidebarToggle);
+  
   return (
     <div
       className={`flex items-center gap-5 w-[100%] h-[75px] rounded-md drop-shadow-xl ${
