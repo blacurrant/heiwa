@@ -9,7 +9,7 @@ import { TbVolume } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import song from '../assets/song.m4a';
+import song from '../assets/song.mp3';
 import songCover from '../assets/songCover.png';
 
 
@@ -28,8 +28,8 @@ const Navbar = ({ handleCurrent }) => {
         {/* <div className="w-[50px] h-[50px] bg-gray-500 rounded-md"></div> */}
         <img className="w-[50px] h-[50px] object-cover rounded-md" src={songCover} alt="songcover"/>
         <div className="flex flex-col">
-          <h1>Don't let me go</h1>
-          <p className="text-sm text-gray-500">elora Allen</p>
+          <h1>Luka Chippi</h1>
+          <p className="text-sm text-gray-500">Seedhe Maut</p>
         </div>
       </div>
       <AudioPlayer

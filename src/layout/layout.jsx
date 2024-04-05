@@ -18,7 +18,7 @@ const Layout = () => {
   }; 
 
   return (
-    <div className="flex flex-col bg-black px-1">
+    <div className="flex flex-col bg-black px-1 font-young tracking-wider">
       <div className="flex">
         <div className=" w-[100%] flex">
           <Sidebar
@@ -27,7 +27,6 @@ const Layout = () => {
           />
           <div className="w-[100%] h-[90vh]rounded-md px-1 py-2">
             <HeroNav />
-            {/* <Hero /> */}
             <Outlet />
           </div>
         </div>

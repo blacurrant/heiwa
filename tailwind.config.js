@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'vt': ["VT323", 'monospace'],
+      'cormorant': ["Cormorant", 'serif'],
+      'young': ["Quicksand", 'sans-serif'],
+    }
   },
   plugins: [],
 }

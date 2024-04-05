@@ -90,7 +90,7 @@ const Sidebar = () => {
         {fetchPlaylist?.data?.length == 0 ? (
           <div
             onClick={handleModal}
-            className="w-[100%] h-[20vh] bg-gradient-to-b from-gray-900 to-gray-950 flex items-center px-5 text-gray-400 cursor-pointer animate-pulse rounded-md"
+            className="w-[100%] h-[20vh] bg-gradient-to-b from-gray-900 to-gray-950 flex items-center px-5 text-gray-400 text-2xl font-semibold cursor-pointer rounded-md"
           >
             {!toggleSidebar ? (
               <button>create your own playlist!</button>

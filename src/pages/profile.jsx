@@ -6,8 +6,8 @@ const Profile = () => {
 
   console.log(user);
   return (
-    <div className="w-[100%] h-[100%] flex flex-col gap-5 py-5 text-gray-200 bg-gradient-to-b from-gray-00 to-red-950">
-      <div className="flex items-center gap-5 w-[100%] h-[25vh] px-5 py-10 ">
+    <div className="w-[100%] h-[80vh] flex flex-col text-gray-200 bg-gradient-to-b from-gray-00 to-blue-950 rounded-b-md">
+      <div className="flex gap-5 items-center w-[100%] h-fit px-5 py-5 bg-gradient-to-b from-gray-700 to-gray-800">
         <img
           className="h-[20vh] w-[25vh] border border-black rounded-full drop-shadow-2xl bg-black"
           src="/"
@@ -23,8 +23,15 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="w-[100%] h-[100%] p-5 bg-gradient-to-b from-gray-800 to-red-950">
+      <div className="flex flex-col gap-5 w-[100%] h-[75%] p-5 bg-gradient-to-b from-gray-900 to-blue-950 rounded-b-md">
         <h1 className="font-bold text-2xl">Followers</h1>
+        <div className="flex gap-5">
+        {[1, 2, 3, 4, 5].map((box, index) => {
+          return (
+            <div key={index} className="w-[25vh] h-[25vh] bg-gray-500 rounded-md"></div>
+          );
+        })}
+      </div>
       </div>
     </div>
   );

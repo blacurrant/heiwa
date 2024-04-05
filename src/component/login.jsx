@@ -36,7 +36,7 @@ const LoginPage = () => {
   // console.log(email, login.email, password, login.passWord);
 
   return (
-    <div className="flex items-center min-h-screen px-4 bg-black text-green-500">
+    <div className="flex items-center min-h-screen px-4 bg-black text-green-500 font-vt">
       <div className="w-full max-w-md mx-auto space-y-6">
         <div className="text-center flex flex-col items-center gap-5">
           <div className="flex gap-2">
