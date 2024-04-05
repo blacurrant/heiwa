@@ -30,8 +30,8 @@ const SongPage = () => {
   console.log(fetchPlaylist?.data[params.songId]);
 
   return (
-    <div className="w-[100%] h-[100%] flex flex-col gap-5 py-5 text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900">
-      <div className="flex items-center gap-5 w-[100%] h-[25vh] px-5">
+    <div className="w-[100%] h-[80vh] flex flex-col gap-5 py-5 text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900 rounded-md">
+      <div className="flex items-center gap-5 w-[100%] h-[25%] px-5">
         <img
           className="h-[100%] w-[25vh] drop-shadow-xl rounded-md"
           src={
@@ -80,7 +80,7 @@ const SongPage = () => {
           )}
         </div>
       </div>
-      <div className="h-[100%] bg-gradient-to-b from-gray-800 to-black px-5">
+      <div className="h-[75%] bg-gradient-to-b from-gray-800 to-black px-5 overflow-y-scroll">
         <table className="h-fit w-[100%] text-gray-300">
           <tr className=" border-b border-gray-500 text-left">
             <th className="py-3">#</th>

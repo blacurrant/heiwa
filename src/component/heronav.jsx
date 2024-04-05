@@ -13,13 +13,8 @@ const HeroNav = () => {
     setToggleUserProfile(!toggleUserProfile);
   };
 
-
-  useEffect(() => {
-    console.log('useeffect');
-  })
-
   return (
-    <div className="flex justify-between w-[100%] h-[10vh] p-5 bg-gray-700 rounded-md relative">
+    <div className="flex justify-between w-[100%] h-[8vh] p-5 bg-gray-700 rounded-t-md relative">
       <div className="flex gap-5 items-center text-4xl opacity-50">
         <IoIosArrowDropleftCircle
           onClick={() => navigate(-1)}

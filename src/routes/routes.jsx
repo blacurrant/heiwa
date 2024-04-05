@@ -7,6 +7,7 @@ import LoginPage from "../component/login";
 import Hero from "../pages/hero";
 import SignUp from "../component/signup";
 import SearchPage from "../component/searchPage";
+import Profile from "../pages/profile";
 import { useSelector } from "react-redux";
 
 
@@ -19,9 +20,6 @@ const MyRoutes = () => {
     }
     return <Navigate to="/login" />;
   };
-
-  console.log ("helooooooooooo   childrrrrrrrrrrrrrr")
-
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
@@ -38,6 +36,7 @@ const MyRoutes = () => {
         <Route path="/:albumId" element={<AlbumPage />} />
         <Route path="song/:songId" element={<SongPage />} />
         <Route path="search" element={<SearchPage />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>
   );

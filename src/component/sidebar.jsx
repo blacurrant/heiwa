@@ -28,7 +28,7 @@ const Sidebar = ({ handleSidebar, toggleSidebar }) => {
 
   return (
     <div
-      className={`flex flex-col gap-2 px-2 h-[90vh] bg-black text-gray-200 ${
+      className={`flex flex-col gap-2 px-1 py-2 h-[90vh] bg-black text-gray-200 ${
         toggleSidebar ? "w-[20vw] md:w-[7vw]" : "w-[50vw] md:w-[35vw]"
       } transition-all duration-300 ease-in-out`}
     >
@@ -36,7 +36,7 @@ const Sidebar = ({ handleSidebar, toggleSidebar }) => {
         <Link
           to="/"
           // onClick={(e) => dispatch(fetchSongs())}
-          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
+          className={`flex gap-5 w-[100%] h-[50%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
             toggleSidebar && "justify-center"
           } `}
         >
@@ -47,7 +47,7 @@ const Sidebar = ({ handleSidebar, toggleSidebar }) => {
         </Link>
         <Link
           to="/search"
-          className={`flex gap-5 w-[100%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
+          className={`flex gap-5 w-[100%] h-[50%] px-5 py-2 bg-gray-900 rounded-md text-gray-500 hover:text-gray-200 ${
             toggleSidebar && "justify-center"
           }`}
         >

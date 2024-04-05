@@ -16,7 +16,7 @@ const AlbumPage = () => {
   console.log(tracks[params?.albumId]);
 
   return (
-    <div className="w-[100%] h-[100%] flex flex-col gap-5 py-5 text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900">
+    <div className="w-[100%] h-[80vh] flex flex-col gap-5 py-5 text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900 rounded-md">
       <div className="flex items-center gap-5 w-[100%] h-[25%] px-5">
         <img
           className="h-[100%] w-[25vh] drop-shadow-xl rounded-md"

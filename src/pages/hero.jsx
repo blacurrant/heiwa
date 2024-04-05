@@ -10,10 +10,10 @@ const Hero = ({ toggleSidebar }) => {
   console.log(fetchData);
 
   return (
-    <div className=" flex flex-col w-[100%] h-[100%] text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900 rounded-md ">
+    <div className=" flex flex-col w-[100%] h-[80vh] text-gray-200 bg-gradient-to-b from-gray-700 to-gray-900 rounded-b-md ">
       {/* <div className="w-[100%] h-[100%] bg-gray-700 rounded-md"> */}
       {/* <HeroNav /> */}
-      <div className="w-[100%] h-[90%] rounded-md overflow-y-auto overflow-x-hidden scrollbar">
+      <div className="w-[100%] h-[100%] rounded-md overflow-y-auto overflow-x-hidden scrollbar">
         <div className="flex flex-col w-[100%] h-fit text-gray-100 p-5 gap-5">
           <h1 className="font-bold text-3xl">Good morning</h1>
           <div className="grid grid-cols-3 gap-5">
