@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="w-[100%] h-[100%] rounded-md overflow-y-auto overflow-x-hidden scrollbar">
         <div className="flex flex-col w-[100%] h-fit text-gray-100 p-5 gap-5">
           <h1 className="font-bold text-3xl">Good morning</h1>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-5">
             {fetchData?.data?.playlists?.items.map((song, index) => {
               return (
                 <NavLink to={`/${index}`} key={index}>
@@ -32,8 +32,8 @@ const Hero = () => {
             <h1 className="font-bold text-3xl">Today's biggest hits</h1>
           </div>
           <div
-            className={`grid gap-5 ${
-              toggleSidebar ? "grid-cols-5" : "grid-cols-4"
+            className={`flex overflow-x-auto gap-5 ${
+              toggleSidebar ? "md:grid md:grid-cols-5" : "md:grid md:grid-cols-4"
             }`}
           >
             {fetchData?.data?.podcasts?.items.map((song, index) => {
@@ -65,7 +65,6 @@ const Hero = () => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

@@ -27,7 +27,7 @@ const Navbar = ({ handleCurrent }) => {
       >
         {/* <div className="w-[50px] h-[50px] bg-gray-500 rounded-md"></div> */}
         <img className="w-[50px] h-[50px] object-cover rounded-md" src={songCover} alt="songcover"/>
-        <div className="flex flex-col">
+        <div className="hidden sm:flex sm:flex-col">
           <h1>Luka Chippi</h1>
           <p className="text-sm text-gray-500">Seedhe Maut</p>
         </div>
